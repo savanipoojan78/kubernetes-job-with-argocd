@@ -20,7 +20,7 @@ spec:
           - mountPath: /var/lib/postgresql/data
             name: test-data
       volumes:
-        - name: test
+        - name: test-data
           persistentVolumeClaim:
             claimName: test-data
 ---
