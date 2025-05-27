@@ -14,5 +14,12 @@ spec:
       containers:
       - name: jobtest
         image: busybox
-        command: ["echo", "job-test-new-2"] 
+        command: ["echo", "$DATABASE_URI"]
+        env:
+        - name: DATABASE_URI
+          valueFrom:
+            secretKeyRef:
+              key: DATABASE_URI
+              name: test-b9tg4b94dk
+              optional: true
       restartPolicy: Never
