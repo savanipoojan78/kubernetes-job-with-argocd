@@ -14,7 +14,8 @@ spec:
       containers:
       - name: jobtest
         image: busybox
-        command: ["echo", "$DATABASE_URI"]
+        command: ["/bin/sh", "-c"]
+        args: ["[ -n \"$DATABASE_URI\" ] || (echo 'DATABASE_URI not set' && exit 1); env"]
         env:
         - name: DATABASE_URI
           valueFrom:
