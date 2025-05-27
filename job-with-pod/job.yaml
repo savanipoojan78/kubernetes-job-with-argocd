@@ -21,6 +21,6 @@ spec:
           valueFrom:
             secretKeyRef:
               key: DATABASE_URI
-              name: test-b9tg4b94dke
+              name: test-b9tg4b94dkd
               optional: true
       restartPolicy: Never
