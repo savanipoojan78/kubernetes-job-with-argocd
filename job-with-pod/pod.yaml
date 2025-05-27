@@ -11,3 +11,21 @@ spec:
       - name: test
         persistentVolumeClaim:
           claimName: test-data
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  annotations:
+    argocd.argoproj.io/hook: PreSync
+    # argocd.argoproj.io/sync-wave: "-2"
+  labels:
+    app: test
+  name: test-data
+  namespace: default
+spec:
+  accessModes:
+  - ReadWriteOnce
+  resources:
+    requests:
+      storage: 10Gi
+  storageClassName: standard-rwo
