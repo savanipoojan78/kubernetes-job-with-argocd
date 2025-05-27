@@ -27,8 +27,8 @@ spec:
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  annotations: {}
-    # argocd.argoproj.io/hook: PreSync
+  annotations:
+    argocd.argoproj.io/hook: PreSync
     # argocd.argoproj.io/sync-wave: "-2"
   labels:
     app: test
