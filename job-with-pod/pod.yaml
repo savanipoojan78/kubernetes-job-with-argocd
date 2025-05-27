@@ -1,6 +1,8 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
+  annotations:
+    argocd.argoproj.io/hook: PreSync
   name: test-container
 spec:
   replicas: 1
