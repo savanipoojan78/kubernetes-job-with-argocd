@@ -3,6 +3,13 @@ service:
   type: ClusterIP
 hpa:
   enabled: false
+resources:
+  requests:
+    cpu: 100m
+    memory: 100Mi
+  limits:
+    cpu: 500m  # double cpu to avoid throttling and slow pod startup
+    memory: 500Mi
 consumer:
   environment:
     test: ref+gcpsecrets://ddn-d740185e-75bd-4b39-8472-4a/promptql-custom#test
