@@ -18,5 +18,5 @@ spec:
           - $values/values.yaml
     - repoURL: 'https://github.com/savanipoojan78/kubernetes-job-with-argocd'
       ref: values
-      targetRevision: HEAD
+      targetRevision: HEAD 
   project: default
