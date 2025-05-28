@@ -1,0 +1,41 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: wiremock
+spec:
+  destination:
+    name: ''
+    namespace: default
+    server: 'https://kubernetes.default.svc'
+  source:
+    chart: wiremock
+    repoURL: 'ghcr.io/deliveryhero/helm-charts'
+    targetRevision: '1.4.6'
+    helm:
+      releaseName: wiremock
+      valuesObject:
+        replicaCount: 1
+        service:
+          type: ClusterIP
+        hpa:
+          enabled: false
+        resources:
+          requests:
+            cpu: 250m
+            memory: 512Mi
+          limits:
+            cpu: 250m  # double cpu to avoid throttling and slow pod startup
+            memory: 512Mi
+        consumer:
+          environment_secret:
+            test: ref+gcpsecrets://ddn-d740185e-75bd-4b39-8472-4a/promptql-custom#test
+        # valueFiles:
+        #   - $values/values.yaml
+    # - repoURL: 'https://github.com/savanipoojan78/kubernetes-job-with-argocd'
+    #   ref: values
+    #   targetRevision: HEAD
+  project: default
+  # syncPolicy:
+  #   automated:
+  #     prune: true
+  #     selfHeal: true
