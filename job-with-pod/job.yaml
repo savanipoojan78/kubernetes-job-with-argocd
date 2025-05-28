@@ -15,12 +15,12 @@ spec:
       - name: jobtest
         image: busybox
         command: ["/bin/sh", "-c"]
-        args: ["[ -n \"$DATABASE_URI\" ] || (echo 'DATABASE_URI not set' && exit 1); env"]
+        args: ["[ -n \"$DB_URL\" ] || (echo 'DB_URL not set' && exit 1); env"]
         env:
-        - name: DATABASE_URI
+        - name: DB_URL
           valueFrom:
             secretKeyRef:
-              key: DATABASE_URI
+              key: DB_URL
               name: test-b9tg4b94dka
               optional: true
       restartPolicy: Never

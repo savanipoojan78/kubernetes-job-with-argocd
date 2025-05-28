@@ -1,0 +1,18 @@
+ apiVersion: argoproj.io/v1alpha1
+ kind: Application
+ metadata:
+   name: test-job
+ spec:
+   destination:
+     name: ''
+     namespace: default
+     server: 'https://kubernetes.default.svc'
+   source:
+     path: job-with-pod
+     repoURL: 'https://github.com/savanipoojan78/kubernetes-job-with-argocd'
+     targetRevision: HEAD
+   project: default
+  #  syncPolicy:
+  #    automated:
+  #      prune: true
+  #      selfHeal: true

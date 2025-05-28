@@ -1,0 +1,8 @@
+replicaCount: 1
+service:
+  type: ClusterIP
+hpa:
+  enabled: false
+consumer:
+  environment:
+    test: ref+gcpsecrets://ddn-d740185e-75bd-4b39-8472-4a/promptql-custom#test

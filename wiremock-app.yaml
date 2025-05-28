@@ -1,0 +1,21 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: wiremock
+spec:
+  destination:
+    name: ''
+    namespace: default
+    server: 'https://kubernetes.default.svc'
+  source:
+    - chart: wiremock
+      repoURL: 'oci://ghcr.io/deliveryhero/helm-charts'
+      targetRevision: '1.4.6'
+      helm:
+        releaseName: wiremock
+        valueFiles:
+          - $values/values.yaml
+    - repoURL: 'https://github.com/savanipoojan78/kubernetes-job-with-argocd'
+      ref: values
+      targetRevision: HEAD
+  project: default
