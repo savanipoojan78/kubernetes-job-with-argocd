@@ -7,9 +7,9 @@ spec:
     name: ''
     namespace: default
     server: 'https://kubernetes.default.svc'
-  source:
+  sources:
     - chart: wiremock
-      repoURL: 'oci://ghcr.io/deliveryhero/helm-charts'
+      repoURL: 'ghcr.io/deliveryhero/helm-charts'
       targetRevision: '1.4.6'
       helm:
         releaseName: wiremock

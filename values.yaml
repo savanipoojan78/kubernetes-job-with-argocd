@@ -11,5 +11,5 @@ resources:
     cpu: 500m  # double cpu to avoid throttling and slow pod startup
     memory: 500Mi
 consumer:
-  environment:
+  environment_secret:
     test: ref+gcpsecrets://ddn-d740185e-75bd-4b39-8472-4a/promptql-custom#test
