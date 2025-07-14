@@ -1,6 +1,6 @@
+engine:
+    auto_upgrade: true
+    version: v1.0.1
 promptql:
     auto_upgrade: true
     version: v1.0.0
-engine:
-    auto_upgrade: true
-    version: v1.2.0
