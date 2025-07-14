@@ -1,3 +1,5 @@
+engine:
+    version: v1.0.0
 promptql-cloud:
     version: v1.2.0
 v3-engine:
