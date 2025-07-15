@@ -1,8 +1,8 @@
 engine:
     auto_upgrade:
-        enabled: true
+        enabled: false
     version: 5eb7baf05f60d0e04018e4072bdd7eb2fe858844
 promptql:
     auto_upgrade:
-        enabled: true
+        enabled: false
     version: v1.0.1
