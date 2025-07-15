@@ -1,0 +1,8 @@
+engine:
+    auto_upgrade:
+        enabled: true
+    version: v1.0.1
+promptql:
+    auto_upgrade:
+        enabled: true
+    version: v1.0.1
