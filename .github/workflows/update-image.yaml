@@ -7,8 +7,8 @@ on:
 jobs:
   push-latest-docker:
     runs-on: ubuntu-latest
-    # Only run when the release becomes the latest (non-prerelease)
-    if: github.event.release.latest == true
+    # Only run when the release is not a prerelease (i.e., it's a full release)
+    if: github.event.release.prerelease == false
     
     steps:
       - name: Echo - Starting checkout
