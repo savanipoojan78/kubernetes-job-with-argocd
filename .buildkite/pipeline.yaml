@@ -1,0 +1,11 @@
+agents:
+  queue: "aws-v3-build-node-common"
+steps:
+  - label: "Push Latest Docker Image"
+    command: |
+      echo "🚀 Starting Docker build for release $${BUILDKITE_TAG}"
+    if: |
+      build.source == "webhook" && 
+      build.env("GITHUB_EVENT_NAME") == "release" && 
+      build.env("GITHUB_EVENT_ACTION") == "edited" &&
+      build.env("GITHUB_RELEASE_PRERELEASE") == "false"
